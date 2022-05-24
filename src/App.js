@@ -11,6 +11,7 @@ import {
   AllCoursesContainer,
   NewCourseContainer
 } from './components/containers';
+import Navbar from "./components/Navbar";
 
 // if you create separate components for adding/editing 
 // a student or instructor, make sure you add routes to those
@@ -19,6 +20,7 @@ import {
 const App = () => {
   return (
     <div className="App">
+      <Navbar/>
       <Switch>
         <Route exact path="/" component={HomePageContainer} />
         <Route exact path="/instructors" component={AllInstructorsContainer} />
