@@ -20,9 +20,9 @@ const InstructorView = ({instructor, editCourse, allCourses, deleteInstructor, h
     <div> 
       <div className = "instructorbox">
       <div>
-          <img className="profilepic" src = {instructor.imageUrl} alt="Instructor" width="200" height = "200"/>
+          <img className="profilepic" src = {instructor.imageUrl} alt="Instructor" width="150" height = "150"/>
         </div>
-        <div>    
+        <div style={{paddingLeft: 50}}>    
           <h1>{instructor.firstname}</h1>
           <h3>{instructor.department}</h3>
           <h4> id: {instructor.id}</h4>

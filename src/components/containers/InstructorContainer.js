@@ -39,6 +39,27 @@ class InstructorContainer extends Component {
   handleSubmit = async event => {
       event.preventDefault();
 
+      if (!this.state.firstname){
+        alert("Can't leave the First Name empty")
+        return
+      }
+      if (!this.state.lastname){
+        alert("Can't leave the Last Name empty")
+        return
+      }
+      if (!this.state.department){
+        this.setState({
+          department: "tbd"
+        })
+      }
+
+
+      if(!this.state.imageUrl){
+        this.setState({
+            imageUrl: "https://pbs.twimg.com/profile_images/763059478061281280/dSuGPwTZ_400x400.jpg"
+        })
+      }
+
       let new_instructor = {
           firstname: this.state.firstname,
           lastname: this.state.lastname,

@@ -21,7 +21,8 @@
     justify-content: center;
     align-items:center;
     margin-bottom: 20px;
-    width: auto
+    width: auto;
+    padding-top: 5%;
   }
 
 .itemdescriptionbox {
