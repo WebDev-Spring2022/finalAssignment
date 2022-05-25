@@ -99,7 +99,6 @@ class InstructorContainer extends Component {
         editCourse={this.props.editCourse}
         allCourses={this.props.allCourses}
         deleteInstructor = {this.onDelete}
-        editInstructor = {this.editInstructor}
         handleSubmit = {this.handleSubmit}
         handleChange = {this.handleChange}
       />

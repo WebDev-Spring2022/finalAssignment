@@ -25,6 +25,50 @@ class CourseContainer extends Component {
     this.props.fetchCourse(this.props.match.params.id);
   }
 
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  }
+
+  handleSubmit = async event => {
+      event.preventDefault();
+
+      if (!this.state.title){
+        alert("Can't leave the title empty")
+        return
+      }
+      if (!this.state.timeslot){
+        this.setState({
+          timeslot: "tbd"
+        })
+      }
+      if (!this.state.location){
+        this.setState({
+          location: "tbd"
+        })
+      }
+
+      if(!this.state.instructorId){
+        alert("Instructor ID can't be empty")
+        return
+      }
+
+      let course = {
+          title: this.state.title,
+          timeslot: this.state.timeslot,
+          location: this.state.location,
+          instructorId: this.state.instructorId,
+          id: this.props.match.params.id
+      };
+      
+      let newCourse = await this.props.editCourse(course);
+
+      this.setState({
+        course: newCourse 
+      });
+  }
+
 
   onDelete = async id =>{
     await this.props.deleteCourse(id)
@@ -41,13 +85,13 @@ class CourseContainer extends Component {
     if(this.state.redirect) {
       return (<Redirect to={`/courses`}/>)
     }
+
     return (
       <CourseView 
         course={this.props.course}
         deleteCourse={this.onDelete}
-
-
-
+        handleChange = {this.handleChange}
+        handleSubmit = {this.handleSubmit}
       />
     );
   }

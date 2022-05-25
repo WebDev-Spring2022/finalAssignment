@@ -81,7 +81,7 @@ class NewCourseContainer extends Component {
           <NewCourseView 
             handleChange = {this.handleChange} 
             handleSubmit={this.handleSubmit}  
-            FormType = "New"    
+            formType = "New"    
           />
         );
     }
