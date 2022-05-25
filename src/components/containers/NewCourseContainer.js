@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 import NewCourseView from '../views/NewCourseView';
-import { addCourseThunk } from '../../store/thunks';
+import {addCourseThunk } from '../../store/thunks';
 
 
 class NewCourseContainer extends Component {
@@ -18,6 +18,7 @@ class NewCourseContainer extends Component {
           redirectId: null
         };
     }
+    
 
     handleChange = event => {
       this.setState({
@@ -27,6 +28,26 @@ class NewCourseContainer extends Component {
 
     handleSubmit = async event => {
         event.preventDefault();
+
+        if (!this.state.title){
+          alert("Can't leave the title empty")
+          return
+        }
+        if (!this.state.timeslot){
+          this.setState({
+            timeslot: "tbd"
+          })
+        }
+        if (!this.state.location){
+          this.setState({
+            location: "tbd"
+          })
+        }
+
+        if(!this.state.instructorId){
+          alert("Instructor ID can't be empty")
+          return
+        }
 
         let course = {
             title: this.state.title,

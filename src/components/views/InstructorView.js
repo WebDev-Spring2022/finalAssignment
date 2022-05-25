@@ -1,16 +1,22 @@
 import { Link } from "react-router-dom";
+import Button from "../Button";
+
 
 
 const InstructorView = (props) => {
-  const {instructor, editCourse, allCourses} = props;
+  
+  const {instructor, editCourse, allCourses, deleteInstructor} = props;
   let assignedCourses = allCourses.filter(course => course.instructorId===instructor.id);
   let availableCourses = allCourses.filter(course => course.instructorId!==instructor.id);
   
   return (
     <div>      
-      <h1>{instructor.firstname} {instructor.id}</h1>
+      <h1>{instructor.firstname}</h1>
       <h3>{instructor.department}</h3>
-
+      <h4> id: {instructor.id}</h4>
+      <div style={{ display:"flex", alignContent: "flex-start", paddingLeft: 400, marginBottom: 20}}>
+      <Button onClick = {() => deleteInstructor(instructor.id)} text = "Delete This Instructor" color="red"/>
+      </div>
       <div style={{display: "flex", flexDirection: "row", justifyContent: "space-evenly"}}>
         <div>Assigned courses:
         {assignedCourses.map( course => {
