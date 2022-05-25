@@ -1,0 +1,29 @@
+.item{
+    padding-left: 10%;
+
+}
+.itembox {
+    display: flex;
+    align-items:baseline;
+    margin-bottom: 20px;
+
+  }
+
+.itemdescriptionbox {
+    display: flex;
+    align-items: flex-end;
+    justify-content: left;
+    margin-bottom: 20px;
+    text-align: left;
+
+  }
+.itemcontainer{
+    max-width: 750px;
+    margin: 30px auto;
+    overflow: auto;
+    min-height: 300px;
+    padding: 30px;
+    border-radius: 5px;
+    
+}
+  

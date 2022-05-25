@@ -9,9 +9,11 @@ import {
   CourseContainer,
   AllInstructorsContainer,
   AllCoursesContainer,
-  NewCourseContainer
+  NewCourseContainer,
+  NewInstructorContainer
 } from './components/containers';
 import Navbar from "./components/Navbar";
+
 
 // if you create separate components for adding/editing 
 // a student or instructor, make sure you add routes to those
@@ -24,6 +26,7 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={HomePageContainer} />
         <Route exact path="/instructors" component={AllInstructorsContainer} />
+        <Route exact path="/newinstructor" component={NewInstructorContainer} />
         <Route exact path="/instructor/:id" component={InstructorContainer} />
         <Route exact path="/courses" component={AllCoursesContainer} />
         <Route exact path="/newcourse" component={NewCourseContainer} />

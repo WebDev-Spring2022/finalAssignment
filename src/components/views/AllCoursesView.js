@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import Button from "../Button";
+import "./Item.css"
 
 const AllCoursesView = (props) => {
   let {courses, deleteCourse} = props;
@@ -8,28 +10,32 @@ const AllCoursesView = (props) => {
     <div>
       <p>There are no courses.</p>
       <Link to={`/newcourse`}>
-        <button>Add New Course</button>
+        <Button color="blue" text="Add New Course"></Button>
       </Link>
     </div>
     );
   }
   
   return (
-    <div>
+    <div className= "itemcontainer">
+      <h1>All Courses</h1>
       {courses.map((course) => {
         let title = course.title;
         return (
           <div key={course.id}>
-          <Link to={`/course/${course.id}`}>
+            <div className = "itembox">
+            <Button onClick = {() => deleteCourse(course.id)} text = "X" color="red"/>
+          <Link class = "item" to={`/course/${course.id}`}>
             <h1>{title}</h1>
           </Link>
+          </div>
           <button onClick={() => deleteCourse(course.id)}>Delete</button>
           </div>
         );
       }
       )}
       <Link to={`/newcourse`}>
-        <button>Add New Course</button>
+        <Button color="blue" text="Add New Course"></Button>
       </Link>
     </div>
   );

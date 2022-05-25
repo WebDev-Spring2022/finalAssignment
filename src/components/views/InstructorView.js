@@ -8,8 +8,9 @@ const InstructorView = (props) => {
   
   return (
     <div>      
-      <h1>{instructor.firstname}</h1>
+      <h1>{instructor.firstname} {instructor.id}</h1>
       <h3>{instructor.department}</h3>
+
       <div style={{display: "flex", flexDirection: "row", justifyContent: "space-evenly"}}>
         <div>Assigned courses:
         {assignedCourses.map( course => {
