@@ -3,6 +3,8 @@ const CourseView = (props) => {
   return (
     <div>
       <h1>{course.title}</h1>
+      <h2>location: {course.location} </h2>
+      <h2>Time: {course.timeslot} </h2>
       {course.instructor ? <h3>{course.instructor.firstname + " " + course.instructor.lastname}</h3>: <h3>staff</h3>}
     </div>
   );

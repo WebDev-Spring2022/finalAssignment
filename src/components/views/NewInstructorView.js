@@ -2,14 +2,16 @@
 
 
 const NewInstructorView = (props) => {
-    const {handleChange, handleSubmit } = props;
-  
+    // console.log(props)
+    const {handleChange, handleSubmit, formType } = props;
+    // console.log(formType)
     return (
       <div className="root">
         <div className="formContainer">
           <div className="formTitle">
             <h2 style={{fontWeight: 'bold', fontFamily: 'Courier, sans-serif', fontSize: '20px', color: '#11153e'}}>
-              New Instructor
+              {formType === "New" && <h1> New Instructor</h1>}
+              {formType === "Edit" && <h1> Edit Instructor</h1>}
             </h2>
           </div>
           <form style={{textAlign: 'center'}} onSubmit={(e) => handleSubmit(e)}>

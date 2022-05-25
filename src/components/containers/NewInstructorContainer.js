@@ -15,7 +15,8 @@ class NewInstructorContainer extends Component {
           department: "", 
           imageUrl: "",
           redirect: false, 
-          redirectId: null
+          redirectId: null,
+          newForm: true 
         };
     }
 
@@ -51,6 +52,8 @@ class NewInstructorContainer extends Component {
         this.setState({redirect: false, redirectId: null});
     }
 
+
+
     render() {
       //go to single course view of newly created course
         if(this.state.redirect) {
@@ -59,7 +62,8 @@ class NewInstructorContainer extends Component {
         return (
           <NewInstructorView 
             handleChange = {this.handleChange} 
-            handleSubmit={this.handleSubmit}      
+            handleSubmit={this.handleSubmit} 
+            formType = "New"   
           />
         );
     }

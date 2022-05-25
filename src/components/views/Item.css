@@ -1,12 +1,27 @@
 .item{
     padding-left: 10%;
+    padding-right: 5%;
 
+}
+
+.profilepic{
+    padding-left: 10%;
+    width: 200;
+    height: 200;
 }
 .itembox {
     display: flex;
     align-items:baseline;
     margin-bottom: 20px;
 
+  }
+
+.instructorbox {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    margin-bottom: 20px;
+    width: auto
   }
 
 .itemdescriptionbox {

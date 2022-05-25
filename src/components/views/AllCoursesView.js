@@ -29,7 +29,10 @@ const AllCoursesView = (props) => {
             <h1>{title}</h1>
           </Link>
           </div>
-          <button onClick={() => deleteCourse(course.id)}>Delete</button>
+          <div className = "itemdescriptionbox">
+            <p>location: {course.location} <br/>
+            Time: {course.timeslot} </p>
+          </div>
           </div>
         );
       }

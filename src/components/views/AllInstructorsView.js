@@ -29,6 +29,9 @@ const AllInstructorsView = (props) => {
               <Link className = "item" to={`/instructor/${instructor.id}`}>
                 <h1>{name}</h1>
               </Link>
+        <div className = "profilepic">
+          <img className="profilepic" src = {instructor.imageUrl} alt="Instructor" width="100" height = "100"/>
+        </div>
             </div>
           <div className = "itemdescriptionbox">
           <p> department: {instructor.department} <br/>

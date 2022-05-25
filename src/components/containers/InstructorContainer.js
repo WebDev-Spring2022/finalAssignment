@@ -6,6 +6,7 @@ import {
   fetchAllCoursesThunk,
   editCourseThunk, 
   deleteInstructorThunk,
+  editInstructorThunk
 } from "../../store/thunks";
 
 import { InstructorView } from "../views";
@@ -14,14 +15,43 @@ class InstructorContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      redirect: false, 
+      firstname: "", 
+      lastname: "",
+      department: "", 
+      imageUrl: "",
+      showEditForm: false,
+      redirect: false,
     };
-}
+  }
   
   componentDidMount() {
     //getting instructor ID from url
     this.props.fetchInstructor(this.props.match.params.id);
     this.props.fetchCourses();
+  }
+  
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  }
+
+  handleSubmit = async event => {
+      event.preventDefault();
+
+      let new_instructor = {
+          firstname: this.state.firstname,
+          lastname: this.state.lastname,
+          department: this.state.department,
+          imageUrl: this.state.imageUrl,
+          id: this.props.match.params.id
+      };
+      console.log(new_instructor)
+      let newInstructor = await this.props.editInstructor(new_instructor);
+
+      this.setState({
+          instructor: newInstructor
+      });
   }
 
   onDelete = async id =>{
@@ -48,6 +78,9 @@ class InstructorContainer extends Component {
         editCourse={this.props.editCourse}
         allCourses={this.props.allCourses}
         deleteInstructor = {this.onDelete}
+        editInstructor = {this.editInstructor}
+        handleSubmit = {this.handleSubmit}
+        handleChange = {this.handleChange}
       />
     );
   }
@@ -68,7 +101,8 @@ const mapDispatch = (dispatch) => {
     fetchInstructor: (id) => dispatch(fetchInstructorThunk(id)),
     editCourse: (course) => dispatch(editCourseThunk(course)),
     fetchCourses: () => dispatch(fetchAllCoursesThunk()),
-    deleteInstructor: (id) => dispatch(deleteInstructorThunk(id))
+    deleteInstructor: (id) => dispatch(deleteInstructorThunk(id)),
+    editInstructor: (id) => dispatch(editInstructorThunk(id))
     
 
   };
